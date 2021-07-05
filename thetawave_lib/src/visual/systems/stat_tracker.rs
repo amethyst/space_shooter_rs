@@ -102,12 +102,12 @@ fn inventory_price(
 ) -> usize {
     match inventory_entity {
         Some(SpawnableType::Item(item_type)) => {
-            items_resource.item_entities[&item_type]
+            items_resource.item_entities[item_type]
                 .item_component
                 .price
         }
         Some(SpawnableType::Consumable(consumable_type)) => {
-            consumables_resource.consumable_entities[&consumable_type]
+            consumables_resource.consumable_entities[consumable_type]
                 .consumable_component
                 .price
         }

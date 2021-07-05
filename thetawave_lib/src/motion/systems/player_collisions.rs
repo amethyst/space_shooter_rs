@@ -157,11 +157,7 @@ impl<'s> System<'s> for PlayerBlastCollisionSystem {
                 let player_hittable = if let Some(barrel_roll_ability) =
                     barrel_roll_abilities.get(event.player_entity)
                 {
-                    if let AbilityDirection::None = barrel_roll_ability.action_direction {
-                        true
-                    } else {
-                        false
-                    }
+                    matches!(barrel_roll_ability.action_direction, AbilityDirection::None)
                 } else {
                     true
                 };

@@ -124,8 +124,7 @@ impl<'s> System<'s> for BlastMotion2DSystem {
                     {
                         // accelerate towards attractor
                         attracted = true;
-                        match blast.blast_type {
-                            BlastType::Enemy => {
+                        if let BlastType::Enemy = blast.blast_type {
                                 motion_2d.target_position = Some(event.target_position);
                                 motion_2d.move_towards_target(
                                     Vector2::new(
@@ -138,8 +137,6 @@ impl<'s> System<'s> for BlastMotion2DSystem {
                                     ),
                                     attract_data.should_repel,
                                 );
-                            }
-                            _ => {}
                         }
                         break;
                     }
@@ -312,7 +309,7 @@ impl<'s> System<'s> for MobMotion2DSystem {
         for (mob, motion_2d, hitbox_2d, transform) in
             (&mobs, &mut motion_2ds, &mut hitbox_2ds, &mut transforms).join()
         {
-            move_mob(&mob, transform, motion_2d, hitbox_2d);
+            move_mob(mob, transform, motion_2d, hitbox_2d);
         }
     }
 }
@@ -485,7 +482,5 @@ fn move_mob(
                 motion_2d.move_up();
             }
         }
-
-        _ => {}
     }
 }

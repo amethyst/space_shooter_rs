@@ -25,7 +25,7 @@ pub fn initialize_audio(world: &mut World) {
         for (sound_name, sound_file) in sound_data.iter() {
             sound_effects.insert(
                 sound_name.to_owned(),
-                load_audio_track(&loader, &world, &*("audio/".to_string() + sound_file)),
+                load_audio_track(&loader, world, &*("audio/".to_string() + sound_file)),
             );
         }
 
@@ -36,7 +36,7 @@ pub fn initialize_audio(world: &mut World) {
 }
 
 pub fn play_sfx(sound: &Handle<Source>, storage: &AssetStorage<Source>, output: Option<&Output>) {
-    if let Some(ref output) = output.as_ref() {
+    if let Some(output) = output.as_ref() {
         if let Some(sound) = storage.get(sound) {
             output.play_once(sound, 1.0);
         }

@@ -63,13 +63,13 @@ pub fn sat_is_colliding(poly1: &[Vector], poly2: &[Vector], max_dist: &Option<f3
 
 pub fn run_sat(poly1: &[Vector], poly2: &[Vector]) -> bool {
     let mut edges = Vec::new();
-    edges.append(&mut poly_to_edges(&poly1));
-    edges.append(&mut poly_to_edges(&poly2));
+    edges.append(&mut poly_to_edges(poly1));
+    edges.append(&mut poly_to_edges(poly2));
 
     let axes = edges.into_iter().map(orthogonal);
 
     for axis in axes {
-        if !overlap(project(&poly1, axis), project(&poly2, axis)) {
+        if !overlap(project(poly1, axis), project(poly2, axis)) {
             return false;
         }
     }

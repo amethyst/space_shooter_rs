@@ -12,7 +12,7 @@ impl SimpleState for PausedState {
         event: StateEvent,
     ) -> SimpleTrans {
         if let StateEvent::Window(event) = &event {
-            if is_key_down(&event, VirtualKeyCode::Escape) {
+            if is_key_down(event, VirtualKeyCode::Escape) {
                 return Trans::Pop;
             }
         }

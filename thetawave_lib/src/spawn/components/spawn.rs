@@ -59,43 +59,43 @@ impl AutoSpawnerComponent {
             match &self.child_entity_type {
                 SpawnableType::Mob(mob_type) => {
                     mobs_resource.spawn_mob(
-                        &mob_type,
+                        mob_type,
                         adjusted_transform,
-                        &spritesheets_resource,
-                        &entities,
-                        &lazy_update,
+                        spritesheets_resource,
+                        entities,
+                        lazy_update,
                     );
                 }
 
                 SpawnableType::Consumable(consumable_type) => {
                     consumables_resource.spawn_consumable(
-                        &consumable_type,
+                        consumable_type,
                         false,
                         adjusted_transform,
-                        &spritesheets_resource,
-                        &entities,
-                        &lazy_update,
+                        spritesheets_resource,
+                        entities,
+                        lazy_update,
                     );
                 }
 
                 SpawnableType::Item(item_type) => {
                     items_resource.spawn_item(
-                        &item_type,
+                        item_type,
                         false,
                         adjusted_transform,
-                        &spritesheets_resource,
-                        &entities,
-                        &lazy_update,
+                        spritesheets_resource,
+                        entities,
+                        lazy_update,
                     );
                 }
 
                 SpawnableType::Effect(effect_type) => {
                     effects_resource.spawn_effect(
-                        &effect_type,
+                        effect_type,
                         adjusted_transform,
-                        &spritesheets_resource,
-                        &entities,
-                        &lazy_update,
+                        spritesheets_resource,
+                        entities,
+                        lazy_update,
                     );
                 }
             }
@@ -149,9 +149,9 @@ impl AutoMobSpawnerComponent {
             mobs_resource.spawn_mob(
                 &self.child_mob_type,
                 adjusted_transform,
-                &spritesheets_resource,
-                &entities,
-                &lazy_update,
+                spritesheets_resource,
+                entities,
+                lazy_update,
             );
         }
     }
@@ -204,9 +204,9 @@ impl AutoConsumableSpawnerComponent {
                 &self.child_consumable_type,
                 false,
                 adjusted_transform,
-                &spritesheets_resource,
-                &entities,
-                &lazy_update,
+                spritesheets_resource,
+                entities,
+                lazy_update,
             );
         }
     }
@@ -259,9 +259,9 @@ impl AutoItemSpawnerComponent {
                 &self.child_item_type,
                 false,
                 adjusted_transform,
-                &spritesheets_resource,
-                &entities,
-                &lazy_update,
+                spritesheets_resource,
+                entities,
+                lazy_update,
             );
         }
     }
@@ -313,9 +313,9 @@ impl AutoEffectSpawnerComponent {
             effects_resource.spawn_effect(
                 &self.child_effect_type,
                 adjusted_transform,
-                &spritesheets_resource,
-                &entities,
-                &lazy_update,
+                spritesheets_resource,
+                entities,
+                lazy_update,
             );
         }
     }

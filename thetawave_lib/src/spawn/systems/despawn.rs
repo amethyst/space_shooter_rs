@@ -112,7 +112,7 @@ mod test {
                 world.insert(EffectReturn(entity));
             })
             .with_assertion(|world| {
-                let entity = world.read_resource::<EffectReturn<Entity>>().0.clone();
+                let entity = world.read_resource::<EffectReturn<Entity>>().0;
                 world.maintain();
                 assert!(!world.is_alive(entity));
             })

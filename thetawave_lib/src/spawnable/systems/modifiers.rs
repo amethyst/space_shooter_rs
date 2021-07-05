@@ -116,7 +116,7 @@ impl<'s> System<'s> for ModifiersSystem {
 
 /// Apply modifier data to values throughout the game
 pub fn apply_modifiers(
-    modifiers: &Vec<Modifier>,
+    modifiers: &[Modifier],
     player_entity: Entity,
     spawnable_type: SpawnableType,
     barrel_roll_ability_components: &mut WriteStorage<BarrelRollAbilityComponent>,

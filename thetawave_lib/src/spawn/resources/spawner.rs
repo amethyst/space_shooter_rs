@@ -114,7 +114,7 @@ impl SpawnerResource {
         for random_spawnable in random_pool.iter() {
             sum += random_spawnable.weight;
             if sum > pos {
-                return &random_spawnable;
+                return random_spawnable;
             }
         }
         unreachable!("Error in probabilities of random spawnable pool.");
@@ -176,7 +176,7 @@ impl SpawnerResource {
         for formation in formation_pool.iter() {
             sum += formation.weight;
             if sum > pos {
-                return &formation;
+                return formation;
             }
         }
         unreachable!("Error in probabilities of formation pool.");
